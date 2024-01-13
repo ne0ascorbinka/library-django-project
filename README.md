@@ -1,4 +1,5 @@
 # Library Management System (Django)
+<img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
 
 ## 📝| Description
 A comprehensive web-based library management system built with Django. This system is designed to streamline the management of library resources, including books, authors, and user accounts, with a focus on efficiency and user-friendliness.
