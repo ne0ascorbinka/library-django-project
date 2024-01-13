@@ -1,0 +1,47 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="authors_list_wrapper">
+    <div class="authors_list_container">
+        <table class="authors_list_table">
+            <tr>
+                <th>Author ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Patronymic</th>
+                <th>Books</th>
+                <th>Delete</th>
+            </tr>
+            {% for author in authors %}
+            <tr>
+                <td>{{author.id}}</td>
+                <td>{{author.name}}</td>
+                <td>{{author.surname}}</td>
+                <td>{{author.patronymic}}</td>
+                <td>
+                    <table>
+                        {% for book in author.books.all %}
+                        <tr>
+                            <td>{{book.name}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+                <td>
+                    <form action="{% url 'delete_author' author.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+{% if not request.user.is_authenticated %}
+<h1>You need to <a class="link" href="{% url 'login_page' %}">login!</a></h1>
+{% endif %}
+{% endblock %}

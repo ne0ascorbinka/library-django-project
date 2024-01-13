@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="detailed_book_wrapper">
+    <div class="detailed_book_container">
+        <h2 class="book_head">{{book.name}}</h2>
+        <p class="book_description">{{book.description}}</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="books_wrapper">
+    <div class="books_container">
+        <table class="books_table">
+            <tr>
+                <th>Book №</th>
+                <th>Name</th>
+                <th>Authors</th>
+                <th>Order</th>
+                {% if request.user.role == 1 %}<th>Delete</th>
+                <th>Add author</th>{% endif %}
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td><a class="link" href="{% url 'detailed_book' book.id %}">{{book.name}}</a></td>
+                <td>
+                    <table class="book_authors_table">
+                        {% for author in book.authors.all %}
+                        <tr><td>{{author.name}} {{author.surname}}</td></tr>
+                        {% endfor %}
+                    </table>
+                </td>
+                <td>
+                    <form action="{% url 'create_order' book.id %}" method="get">
+                        <button type="submit">Order</button>
+                    </form>
+                </td>
+                {% if request.user.role == 1 %}
+                <td>
+                    <form action="{% url 'delete_book' book.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'add_author' book.id %}" method="post">
+                        {% csrf_token %}
+                        <select name="add_author" id="authors">
+                            {% for author in authors %}
+                            <option value="{{author.id}}">{{author.surname}}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit">Add author</button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+{% comment %} I think this block is deprecated (or not) {% endcomment %}
+{% if not request.user.is_authenticated %}
+<h1>You need to <a class="link" href="{% url 'login_page' %}">login!</a></h1>
+{% endif %}
+{% endblock %}

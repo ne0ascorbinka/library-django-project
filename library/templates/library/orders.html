@@ -1,0 +1,38 @@
+{% extends 'library/base.html' %}
+{% block content %}
+<div class="orders_wrapper">
+    <div class="order_container">
+        <table class="orders_table">
+            <tr>
+                <th>Order №</th>
+                <th>Book</th>
+                <th>Customer email</th>
+                <th>Customer name</th>
+                <th>Created at</th>
+                <th>Expires at</th>
+                {% if request.user.role == 1 %}
+                <th>Close the order</th>
+                {% endif%}
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.book.name}}</td>
+                <td>{{order.user.email}}</td>
+                <td>{{order.user.first_name}} {{order.user.last_name}}</td>
+                <td>{{order.created_at}}</td>
+                <td>{{order.plated_end_at}}</td>
+                {% if request.user.role == 1 %}
+                <td>
+                    <form action="{% url 'orders_page' %}{{order.id}}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Close</button>
+                    </form>
+                </td>
+                {% endif%}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+{% block content %}
+<div class="new_book_wrapper">
+    <div class="new_book_container">
+        <form class="add_book_form" action="{% url 'new_book' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Add book</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

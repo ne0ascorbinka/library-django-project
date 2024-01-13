@@ -1,0 +1,281 @@
+body {
+    padding: 0;
+    margin: 0;
+    color: aliceblue;
+    background-image: url('./images/library_background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.book_logo {
+    width: 50px;
+    height: 50px;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_form {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    /* height: 60vh; */
+    /* margin: 500px auto; */
+    background-color: rgba(104, 98, 98, 0.742);
+    border-radius: 20px;
+}
+
+.login_form input {
+    margin: 15px;
+    width: 180px;
+    height: 40px;
+    border-radius: 14px;
+    border-style: none;
+}
+
+.login_form button {
+    margin-top: 60px;
+    border-radius: 15px;
+    border-style: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(208, 217, 224);
+    color: black;
+    height: 30px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    background-color: rgba(53, 50, 50, 0.779);
+
+}
+
+.navlist {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+.navlist li {
+    width: 95px;
+    text-align: center;
+    /* outline: 1px red solid; */
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.navlist a {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+.user_email {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(204, 151, 151);
+}
+
+.orders_table,
+.books_table,
+.authors_list_table {
+    width: 90vw;
+    font-size: 24px;
+    text-align: center;
+}
+
+.orders_wrapper,
+.books_wrapper,
+.new_book_wrapper,
+.new_order_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.authors_list_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order_container,
+.books_container,
+.new_author_container,
+.new_order_container {
+    width: 90vw;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 20, 20, 0.851);
+    border-radius: 15px;
+}
+
+
+
+
+.authors_list_container {
+    width: 90vw;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 20, 20, 0.851);
+    border-radius: 15px;
+}
+
+.add_book_form,
+.new_author_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    text-align: center;
+    align-items: center;
+}
+
+
+.new_book_container,
+.new_order_container {
+    width: 40vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 20, 20, 0.851);
+    border-radius: 15px;
+}
+
+#bookname {
+    height: 26px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.book_description {
+    border-radius: 10px;
+    height: 160px;
+    width: 380px;
+    margin-bottom: 44px;
+    padding: 10px;
+
+}
+#description {
+    border-radius: 10px;
+    height: 160px;
+    width: 380px;
+    margin-bottom: 44px;
+    padding: 10px;
+}
+
+.add_book_form label,
+.new_order_form label {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.add_book_form button,
+.new_order_form button {
+    /* width: 90px; */
+    height: 30px;
+    border-radius: 7px;
+    border-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(44, 97, 32);
+    color: antiquewhite;
+}
+
+
+.new_author_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailed_book_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.detailed_book_container {
+    width: 40vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 20, 20, 0.851);
+    border-radius: 15px;    
+}
+
+.home_wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.home_container {
+    width: 40vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 20, 20, 0.851);
+    border-radius: 15px;     
+}
+
+.home_title {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.book_authors_table {
+    width: 100%; /* Set the width of the table */
+    margin: 0 auto; /* Adds automatic margins to center the table horizontally */
+  }
+  
+
+.book_authors_table td {
+    text-align: center; /* Centers text horizontally */
+    vertical-align: middle; /* Centers text vertically */
+  }
+  

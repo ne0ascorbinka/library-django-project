@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'homepage' %}"><img class="book_logo" src="{% static '/images/book_logo.jpg'%}"
+                    alt="book logo"></a>
+            <ul class="navlist">
+                {% if not request.user.is_authenticated %}
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+                <li><a href="{% url 'signin_page' %}">Sign up</a></li>
+                {% endif %}
+                {% if request.user.role == 1 %}
+                <li><a href="{% url 'new_book' %}">Add book</a></li>
+                <li><a href="{% url 'new_author_page' %}">Add author</a></li>
+                <li><a href="{% url 'authors_list_page' %}">Authors</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'books_list' %}">Books</a></li>
+                <li><a href="{% url 'orders_page' %}">Orders</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+            </ul>
+            <span class="user_email">{{request.user.email}}</span>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

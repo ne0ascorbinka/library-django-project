@@ -1,0 +1,13 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<div class="new_author_wrapper">
+    <div class="new_author_container">
+        <form class="new_author_form" action="{% url 'new_author_page' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Add author</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

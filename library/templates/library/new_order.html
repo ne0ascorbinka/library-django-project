@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+{% block content %}
+<div class="new_order_wrapper">
+    <div class="new_order_container">
+        <form class="new_order_form" action="{% url 'create_order' id %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Confirm order</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
