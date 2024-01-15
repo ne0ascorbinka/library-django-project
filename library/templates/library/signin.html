@@ -7,10 +7,10 @@
     {% for field in form %}
         {% comment %} <div class="form-group"> {% endcomment %}
             {{ field.label_tag }}
-            {{ field }}
             {% if field.errors %}
                 <div class="error">{{ field.errors }}</div>
             {% endif %}
+            {{ field }}
         {% comment %} </div> {% endcomment %}
     {% endfor %}
     
