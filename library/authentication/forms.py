@@ -1,12 +1,10 @@
-from authentication.models import CustomUser
+from .models import CustomUser
 from django import forms
 
-from django import forms
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label='Email', required=True)
     password = forms.CharField(widget=forms.PasswordInput, label='Password', required=True)
-
 
 
 class SignUpForm(forms.Form):

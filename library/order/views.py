@@ -41,3 +41,12 @@ def create_order_view(request: HttpRequest, id):
             book.count -= 1
             book.save()
             return redirect('orders_page')
+
+def close_order(request, id):
+    if request.user.role != 1:
+        return HttpResponse('<h1>403 Forbidden</h1>')
+    order = Order.get_by_id(id)
+    order.update(end_at=timezone.now())
+    order.book.count += 1
+    order.book.save() 
+    return redirect('orders_page')

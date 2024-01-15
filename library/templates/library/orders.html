@@ -24,7 +24,7 @@
                 <td>{{order.plated_end_at}}</td>
                 {% if request.user.role == 1 %}
                 <td>
-                    <form action="{% url 'orders_page' %}{{order.id}}" method="post">
+                    <form action="{% url 'close_order' order.id %}" method="post">
                         {% csrf_token %}
                         <button type="submit">Close</button>
                     </form>
