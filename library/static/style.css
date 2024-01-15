@@ -278,4 +278,18 @@ body {
     text-align: center; /* Centers text horizontally */
     vertical-align: middle; /* Centers text vertically */
   }
-  
+
+/* Style for the outer error list */
+.errorlist {
+    list-style-type: none; /* Remove bullet points or numbering */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+/* Style for the individual error messages */
+.errorlist li {
+    color: #7b1212; /* Red text color for errors */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-top: 5px; /* Add some spacing between error messages */
+}
+
