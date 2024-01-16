@@ -26,7 +26,16 @@ git clone https://github.com/ne0ascorbinka/library-django-project.git
 pip install -r requirements.txt
 ```
 3. Set up a PostgreSQL database.
-4. Configure database settings in `library/library/settings.py`.
+4. Configure project:
+ - Go to `.env.template`;
+ - Get your django key and paste in .env file. You can get your key by running:
+```shell
+python .\library\utils\get_key.py
+# or on linux:
+python ./library/utils/get_key.py 
+```
+ - configure DB parameters
+ - rename template file to `.env`
 5. Run migrations:
 ```shell
 cd library;
