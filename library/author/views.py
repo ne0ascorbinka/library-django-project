@@ -1,14 +1,17 @@
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import redirect, render
+from django.views.generic import ListView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Author
 from .forms import AuthorForm
-from django.shortcuts import redirect, render
 
-def authors_list_view(request: HttpRequest):
-    if not request.user.is_authenticated:
-        return HttpResponse('<h1>403 Forbidden</h1>')    
-    authors =  list(Author.objects.all())
-    context = {'authors': authors}
-    return render(request, 'library/authors_list.html', context)
+
+class AuthorListView(LoginRequiredMixin, ListView):
+    login_url = 'login_page'
+
+    model = Author
+    template_name = "library/authors_list.html"
+    context_object_name = "authors"
 
 def author_delete(request, id):
     if not request.user.role == 1:
@@ -19,6 +22,8 @@ def author_delete(request, id):
         return redirect('authors_list_page')
     else:
         return redirect('authors_list_page')
+
+
 
 def new_author_view(request):
     if request.method == 'GET':
